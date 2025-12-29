@@ -22,9 +22,9 @@
               ref="actionsRef"
               class="mt-6 flex items-center justify-center gap-3 opacity-0"
             >
-              <a :href="site.resumeUrl" class="px-5 py-3 text-sm font-medium rounded-2xl bg-white border border-aerospace-sky text-aerospace-navy shadow-sm hover:shadow-md transition-shadow">
+              <button @click="downloadResume" class="px-5 py-3 text-sm font-medium rounded-2xl bg-white border border-aerospace-sky text-aerospace-navy shadow-sm hover:shadow-md transition-shadow">
                 Download Resume
-              </a>
+              </button>
               <a :href="`mailto:${site.email}`" class="px-5 py-3 text-sm font-medium rounded-2xl bg-aerospace-accent text-white shadow-lg shadow-aerospace-accent/30 hover:shadow-aerospace-accent/50 transition-shadow">
                 Email Me
               </a>
@@ -90,10 +90,17 @@
 import { ref, onMounted } from 'vue';
 import anime from 'animejs';
 import { site } from '~/data/site';
+import { useResume } from '~/composables/useResume';
 
 const titleRef = ref(null);
 const subtitleRef = ref(null);
 const actionsRef = ref(null);
+
+const { generateResume } = useResume();
+
+const downloadResume = () => {
+  generateResume();
+};
 
 onMounted(() => {
   anime.timeline({
