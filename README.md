@@ -1,49 +1,75 @@
-# Three.js Portfolio (Next.js + Tailwind + React Three Fiber)
+# Nuxt Minimal Starter
 
-A sleek, production-ready portfolio template featuring a 3D hero built with React Three Fiber.
-Optimized for one-click deploys on **Vercel**.
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Quick Start
+## Setup
+
+Make sure to install dependencies:
 
 ```bash
-# 1) Install deps
-npm i
+# npm
+npm install
 
-# 2) Run locally
+# pnpm
+pnpm install
+
+# yarn
+yarn install
+
+# bun
+bun install
+```
+
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
 npm run dev
 
-# 3) Build & run production
-npm run build && npm start
+# pnpm
+pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
 ```
 
-## Customize
+## Production
 
-Edit `data/site.js` to change your name, tagline, skills, and projects.
+Build the application for production:
 
-- `site.resumeUrl` — link to your resume/CV (Google Drive/public URL).
-- `site.email` — your email for the contact button.
-- `site.socials` — add/remove social links.
-- `site.projects` — add your projects.
-
-Hero background lives in `components/HeroCanvas.jsx`. Tweak geometries, colors, or lighting as you like.
-
-## Deploy to Vercel
-
-Option A (GitHub):
-1. Create a new GitHub repo and push this project.
-2. Go to **vercel.com/new**, import the repo, keep defaults.
-3. Deploy. (Framework preset: Next.js)
-
-Option B (Vercel CLI):
 ```bash
-npm i -g vercel
-vercel
+# npm
+npm run build
+
+# pnpm
+pnpm build
+
+# yarn
+yarn build
+
+# bun
+bun run build
 ```
-Follow the prompts; subsequent deploys are `vercel --prod`.
 
-## Tech
+Locally preview production build:
 
-- Next.js app router
-- Tailwind CSS
-- React Three Fiber + Drei
-- Framer Motion
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
