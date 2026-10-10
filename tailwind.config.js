@@ -14,14 +14,15 @@ export default {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
-        // Bright Aerospace Palette
+        // AI lab palette: deep navy canvas, cyan signal, lime status accent.
         aerospace: {
-          sky: '#E0F2FE',     // Ultra light sky (backgrounds)
-          cloud: '#F0F9FF',   // Cloud white
-          accent: '#0EA5E9',  // Sky Blue 500 (buttons/highlights)
-          // Text Colors
-          navy: '#0C4A6E',    // Sky 900 (Headings)
-          text: '#334155',    // Slate 700 (Body text)
+          sky: '#16324F',
+          cloud: '#07111F',
+          accent: '#42D9FF',
+          navy: '#F3F8FC',
+          text: '#C3D2DF',
+          lime: '#B8F36B',
+          panel: '#0D1D2E',
         }
       },
       backgroundImage: {

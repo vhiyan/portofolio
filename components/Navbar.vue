@@ -1,39 +1,33 @@
 <template>
-  <header ref="navRef" class="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur-md border-b border-aerospace-sky opacity-0">
-    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-      <NuxtLink to="/" class="font-semibold tracking-tight text-aerospace-navy text-xl">
-        KD<span class="text-aerospace-accent">•</span>Portfolio
-      </NuxtLink>
-      
-      <nav class="hidden md:flex gap-6 text-sm font-medium text-aerospace-text">
-        <a href="#about" class="hover:text-aerospace-accent transition-colors">About</a>
-        <a href="#skills" class="hover:text-aerospace-accent transition-colors">Skills</a>
-        <a href="#projects" class="hover:text-aerospace-accent transition-colors">Projects</a>
-        <a href="#contact" class="hover:text-aerospace-accent transition-colors">Contact</a>
+  <header ref="navRef" class="fixed inset-x-0 top-0 z-50 border-b border-aerospace-sky/70 bg-aerospace-cloud/95 opacity-0 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <NuxtLink to="/" class="font-mono text-sm font-bold tracking-tight text-aerospace-navy">KD<span class="text-aerospace-accent">/</span>DEV</NuxtLink>
+      <nav class="hidden gap-7 text-sm font-medium text-aerospace-text md:flex">
+        <a v-for="item in items" :key="item.href" :href="item.href" class="transition-colors hover:text-aerospace-accent">{{ item.label }}</a>
       </nav>
-
-      <button class="md:hidden text-aerospace-navy" aria-label="Open menu" @click="isOpen = !isOpen">
-        <Menu />
+      <button class="rounded-md p-2 text-aerospace-navy transition-colors hover:bg-aerospace-sky md:hidden" :aria-expanded="isOpen" aria-controls="mobile-menu" aria-label="Toggle menu" @click="isOpen = !isOpen">
+        <Menu v-if="!isOpen" :size="20" /><X v-else :size="20" />
       </button>
     </div>
-
-    <!-- Mobile Menu -->
-    <div v-if="isOpen" class="md:hidden px-4 pb-4 space-y-2 bg-white border-t border-aerospace-sky">
-      <a href="#about" class="block py-2 text-aerospace-text">About</a>
-      <a href="#skills" class="block py-2 text-aerospace-text">Skills</a>
-      <a href="#projects" class="block py-2 text-aerospace-text">Projects</a>
-      <a href="#contact" class="block py-2 text-aerospace-text">Contact</a>
-    </div>
+    <nav v-if="isOpen" id="mobile-menu" class="space-y-1 border-t border-aerospace-sky bg-aerospace-cloud px-4 pb-4 pt-2 md:hidden">
+      <a v-for="item in items" :key="item.href" :href="item.href" class="block rounded-md py-3 text-aerospace-text hover:bg-aerospace-sky" @click="isOpen = false">{{ item.label }}</a>
+    </nav>
   </header>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { Menu } from 'lucide-vue-next';
+import { Menu, X } from 'lucide-vue-next';
 import anime from 'animejs';
 
 const isOpen = ref(false);
 const navRef = ref(null);
+const items = [
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
+];
 
 onMounted(() => {
   anime({

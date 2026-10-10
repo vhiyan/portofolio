@@ -6,18 +6,16 @@
     ref="cardRef"
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
-    class="block rounded-2xl p-6 bg-white/60 backdrop-blur-sm border border-aerospace-sky shadow-lg shadow-aerospace-sky/50 transition-colors"
+    class="group block border-t border-aerospace-sky py-6 transition-colors hover:border-aerospace-accent"
   >
     <div class="flex items-start justify-between gap-4">
       <div>
-        <h3 class="text-lg font-semibold text-aerospace-navy">{{ title }}</h3>
-        <p class="text-sm text-aerospace-text mt-1">{{ summary }}</p>
+        <h3 class="text-lg font-semibold text-aerospace-navy group-hover:text-aerospace-accent">{{ title }}</h3>
+        <p class="mt-2 max-w-lg text-sm leading-6 text-aerospace-text">{{ summary }}</p>
       </div>
     </div>
-    <div class="mt-4 flex flex-wrap gap-2">
-      <span v-for="tag in tags" :key="tag" class="text-xs px-2 py-1 rounded-full bg-aerospace-sky text-aerospace-accent font-medium">
-        {{ tag }}
-      </span>
+    <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+      <span v-for="tag in tags" :key="tag" class="font-mono text-xs text-slate-400">{{ tag }}</span>
     </div>
   </a>
 </template>

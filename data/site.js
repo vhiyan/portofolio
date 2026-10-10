@@ -1,7 +1,7 @@
 export const site = {
   name: "Kristiawan Devianto",
-  role: "Embedded Systems Developer",
-  tagline: "Hardware design • Firmware development • PLC & FPGA",
+  role: "Lecturer, PLAI BMD",
+  tagline: "Artificial Intelligence • Robotics • Embedded Systems",
   email: "kristiawan.devianto@gmail.com",
   resumeUrl: "download-resume", // Will trigger PDF download
   socials: [

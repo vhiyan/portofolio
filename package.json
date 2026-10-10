@@ -12,6 +12,7 @@
   "dependencies": {
     "@tresjs/cientos": "^5.2.1",
     "animejs": "^3.2.2",
+    "caniuse-lite": "^1.0.30001815",
     "jspdf": "^2.5.2",
     "nuxt": "^4.2.2",
     "three": "^0.182.0",

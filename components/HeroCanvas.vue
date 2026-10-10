@@ -1,18 +1,18 @@
 <template>
-  <div class="relative w-full h-[72vh] md:h-[80vh] rounded-2xl overflow-hidden ring-1 ring-aerospace-sky/50 bg-aerospace-cloud/50 backdrop-blur-sm">
+  <div class="relative h-[78vh] w-full overflow-hidden border border-aerospace-sky/70 bg-aerospace-cloud md:h-[82vh]">
     <TresCanvas v-bind="gl" shadows>
       <TresPerspectiveCamera :position="[0, 0, 5]" :fov="60" />
       <OrbitControls make-default />
       
-      <!-- Lighting for Bright Aerospace Theme -->
-      <TresAmbientLight :intensity="0.8" color="#E0F2FE" />
+      <!-- Cyan rim light separates robot model from dark lab canvas. -->
+      <TresAmbientLight :intensity="0.45" color="#16324F" />
       <TresDirectionalLight
         :position="[5, 10, 5]"
-        :intensity="2.0"
-        color="#FFFFFF"
+        :intensity="1.4"
+        color="#D8F6FF"
         cast-shadow
       />
-      <TresPointLight :position="[-10, -5, -10]" :intensity="1.0" color="#0EA5E9" />
+      <TresPointLight :position="[-10, -5, -10]" :intensity="2.2" color="#42D9FF" />
       
       <!-- Environment -->
       <Suspense>
@@ -30,7 +30,7 @@
     </TresCanvas>
 
     <!-- Overlay Gradients -->
-    <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-aerospace-sky/20 pointer-events-none"></div>
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-aerospace-cloud via-transparent to-aerospace-sky/20"></div>
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
       <div class="pointer-events-auto max-w-3xl px-6 relative z-10 w-full">
         <slot />
@@ -44,7 +44,7 @@ import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three';
 import { OrbitControls, Environment } from '@tresjs/cientos';
 
 const gl = {
-  clearColor: '#F0F9FF',
+  clearColor: '#07111F',
   shadows: true,
   alpha: true,
   shadowMapType: BasicShadowMap,
