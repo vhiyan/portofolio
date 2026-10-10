@@ -5,10 +5,10 @@
       <!-- HERO -->
       <div class="mx-auto max-w-6xl px-4">
         <HeroCanvas>
-          <div class="grid items-center gap-10 py-10 text-left md:grid-cols-[1.1fr_0.9fr] md:py-20">
-            <div>
+          <div class="grid min-h-[58vh] items-end gap-8 py-8 text-left md:grid-cols-[1fr_auto] md:py-14">
+            <div class="max-w-3xl self-end">
               <p class="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-aerospace-lime">PLAI BMD / AI & Robotics Lab</p>
-              <h1 ref="titleRef" class="max-w-3xl text-5xl font-semibold leading-[0.95] tracking-[-0.06em] text-aerospace-navy opacity-0 md:text-7xl">
+              <h1 ref="titleRef" class="max-w-3xl text-5xl font-semibold leading-[0.92] tracking-[-0.06em] text-aerospace-navy opacity-0 md:text-8xl">
                 Teaching machines to sense, decide, and move.
               </h1>
               <p ref="subtitleRef" class="mt-6 max-w-xl text-base leading-7 text-aerospace-text opacity-0 md:text-lg">
@@ -19,14 +19,14 @@
                 <a :href="`mailto:${site.email}`" class="rounded-lg border border-aerospace-accent px-5 py-3 text-sm font-semibold text-aerospace-navy transition-colors hover:bg-aerospace-accent hover:text-aerospace-cloud">Discuss a project</a>
               </div>
             </div>
-            <div class="border-l border-aerospace-accent/40 pl-6 md:pl-10">
-              <p class="font-mono text-xs uppercase tracking-[0.18em] text-aerospace-lime">Current focus</p>
-              <p class="mt-4 text-2xl font-medium leading-tight text-aerospace-navy">Building practical intelligence for sensors, robots, and edge devices.</p>
-              <dl class="mt-8 space-y-4 border-t border-aerospace-sky pt-6 text-sm">
-                <div class="flex justify-between gap-4"><dt class="text-slate-400">Role</dt><dd class="text-right font-medium text-aerospace-navy">Lecturer / Researcher</dd></div>
-                <div class="flex justify-between gap-4"><dt class="text-slate-400">Signal path</dt><dd class="text-right font-medium text-aerospace-navy">Sense · Compute · Act</dd></div>
-              </dl>
-            </div>
+            <aside class="hidden w-44 self-start border-l border-aerospace-accent/50 pl-4 md:block">
+              <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-aerospace-lime">System brief</p>
+              <div class="mt-5 space-y-5 text-xs">
+                <div><p class="text-slate-400">Role</p><p class="mt-1 font-medium text-aerospace-navy">Lecturer / Researcher</p></div>
+                <div><p class="text-slate-400">Signal path</p><p class="mt-1 font-medium text-aerospace-navy">Sense · Compute · Act</p></div>
+                <div><p class="text-slate-400">Environment</p><p class="mt-1 font-medium text-aerospace-navy">Physical world</p></div>
+              </div>
+            </aside>
           </div>
         </HeroCanvas>
       </div>
@@ -45,26 +45,32 @@
 
       <!-- SKILLS -->
       <Section id="skills" title="The working toolkit" subtitle="Technologies used to move from an idea to a functioning system.">
-        <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <div v-for="sk in site.skills" :key="sk" class="border border-aerospace-sky bg-aerospace-panel px-4 py-3 text-sm font-medium text-aerospace-navy transition-colors hover:border-aerospace-accent">
-            {{ sk }}
+        <div class="grid border-l border-aerospace-sky sm:grid-cols-2 lg:grid-cols-4">
+          <div v-for="(sk, index) in site.skills" :key="sk" class="group border-b border-r border-t border-aerospace-sky px-4 py-5 transition-colors hover:bg-aerospace-panel">
+            <span class="font-mono text-[10px] text-aerospace-accent">{{ String(index + 1).padStart(2, '0') }}</span>
+            <p class="mt-3 text-sm font-medium text-aerospace-navy">{{ sk }}</p>
           </div>
         </div>
       </Section>
 
       <!-- PROJECTS -->
       <Section id="projects" title="Lab work and experiments" subtitle="Projects that connect code to sensors, machines, and the people learning to build them.">
-        <div class="grid md:grid-cols-2 gap-4">
-          <ProjectCard v-for="p in site.projects" :key="p.title" v-bind="p" />
+        <div class="grid gap-x-10 md:grid-cols-2">
+          <div v-for="(p, index) in site.projects" :key="p.title" class="relative">
+            <span class="absolute right-0 top-6 font-mono text-[10px] text-aerospace-accent">WORK {{ String(index + 1).padStart(2, '0') }}</span>
+            <ProjectCard v-bind="p" />
+          </div>
         </div>
       </Section>
 
       <!-- CONTACT -->
       <Section id="contact" title="Contact">
-        <div class="border border-aerospace-accent bg-aerospace-panel p-8 text-center">
-          <p class="text-lg text-aerospace-navy">
-            Have an AI or robotics project to discuss? Reach me at <a class="font-bold text-aerospace-accent hover:underline" :href="`mailto:${site.email}`">{{ site.email }}</a>.
-          </p>
+        <div class="grid gap-8 border border-aerospace-accent bg-aerospace-panel p-7 md:grid-cols-[1fr_auto] md:items-center md:p-10">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-[0.18em] text-aerospace-lime">Open channel</p>
+            <p class="mt-3 max-w-xl text-2xl font-medium leading-tight text-aerospace-navy md:text-3xl">Have an AI or robotics project to discuss?</p>
+          </div>
+          <a class="w-fit font-mono text-sm font-bold text-aerospace-accent underline decoration-aerospace-accent/50 underline-offset-8 hover:text-aerospace-lime" :href="`mailto:${site.email}`">{{ site.email }}</a>
         </div>
       </Section>
 
